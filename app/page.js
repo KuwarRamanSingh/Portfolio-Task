@@ -1,103 +1,81 @@
-import Image from "next/image";
+import Link from "next/link"
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+import ProjectCard from "./components/ProjectCard"
 
-export default function Home() {
+export const metadata = {
+  title: "Home | Portfolio",
+  description: "Personal portfolio showcasing projects and contact information.",
+}
+
+export default function Page() {
+  const featured = [
+    {
+      title: "Password Manager app",
+      description: "A clean storefront with product grid, filters, and cart flow.",
+      tags: ["HTML", "CSS", "JavaScript"],
+      href: "https://github.com/KuwarRamanSingh/Password-Manager.github.io",
+    },
+    {
+      title: "Calculator",
+      description: "Efficient Calculation Tool",
+      tags: ["HTML", "CSS", "JavaScript"],
+      href: "https://github.com/KuwarRamanSingh/Calculator-Task",
+    },
+    {
+      title: "To do List",
+      description: "Keep track of task for optimising performance",
+      tags: ["HTML", "CSS", "JavaScript"],
+      href: "https://github.com/KuwarRamanSingh/To-Do-List-",
+    },
+  ]
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-white text-gray-900">
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main id="content" className="mx-auto max-w-6xl px-4">
+        <section className="flex flex-col items-start gap-6 py-16 md:py-20">
+          <p className="text-sm font-medium text-indigo-600">Available for freelance</p>
+          <h1 className="max-w-3xl text-pretty text-4xl font-bold leading-tight md:text-5xl">
+            Hi, I'm Kuwar Raman Singh. I design and build clean, responsive web experiences.
+          </h1>
+          <p className="max-w-2xl text-lg text-gray-700">
+            Front-end developer focused on quality UI, performance, and accessibility. Check out my work and let's
+            collaborate.
+          </p>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/portfolio"
+              className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+            >
+              See Portfolio
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50"
+            >
+              Contact Me
+            </Link>
+          </div>
+        </section>
+
+        <section className="py-10">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-2xl font-semibold">Featured Projects</h2>
+            <Link href="/portfolio" className="text-sm font-medium text-indigo-600 hover:text-indigo-700">
+              View all
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {featured.map((p) => (
+              <ProjectCard key={p.title} {...p} imageAlt={`${p.title} preview`} />
+            ))}
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <Footer />
     </div>
-  );
+  )
 }
