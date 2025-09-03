@@ -38,10 +38,10 @@ export default function Page() {
         <section className="flex flex-col items-start gap-6 py-16 md:py-20">
           <p className="text-sm font-medium text-indigo-600">Available for freelance</p>
           <h1 className="max-w-3xl text-pretty text-4xl font-bold leading-tight md:text-5xl">
-            Hi, I'm Kuwar Raman Singh. I design and build clean, responsive web experiences.
+            Hi, I&apos;m Kuwar Raman Singh. I design and build clean, responsive web experiences.
           </h1>
           <p className="max-w-2xl text-lg text-gray-700">
-            Front-end developer focused on quality UI, performance, and accessibility. Check out my work and let's
+            Front-end developer focused on quality UI, performance, and accessibility. Check out my work and let&apos;s
             collaborate.
           </p>
           <div className="flex items-center gap-3">

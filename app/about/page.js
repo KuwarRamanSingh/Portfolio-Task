@@ -23,7 +23,7 @@ export default function Page() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           <section className="md:col-span-2 space-y-4">
             <p className="text-gray-700">
-              I build websites and apps that are fast, accessible, and easy to use. Over the years, I've worked on
+              I build websites and apps that are fast, accessible, and easy to use. Over the years, I&apos;ve worked on
               dashboards, marketing pages, and component libraries.
             </p>
             <p className="text-gray-700">

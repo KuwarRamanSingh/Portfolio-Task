@@ -1,14 +1,18 @@
 import Link from "next/link"
+import Image from 'next/image';
 
 export default function ProjectCard({ title, description, tags = [], href, imageAlt }) {
   return (
     <article className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
       <div className="aspect-[16/10] w-full overflow-hidden bg-gray-100">
-        <img
-          src="https://images.pexels.com/photos/3183188/pexels-photo-3183188.jpeg"
-          alt={imageAlt || `${title} screenshot`}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-        />
+        <Image
+  src="https://images.pexels.com/photos/3183188/pexels-photo-3183188.jpeg"
+  alt={imageAlt || `${title} screenshot`}
+  width={800} // Approx width (required)
+  height={600} // Approx height (required)
+  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+  unoptimized // Because it's an external URL
+/>
       </div>
       <div className="space-y-3 p-4">
         <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
